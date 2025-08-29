@@ -1,6 +1,14 @@
 # Write your solution here
 def block_correct(sudoku: list, row_no: int, column_no: int):
-    pass
+    numbers: list = []
+    for x in range(row_no, row_no + 3):
+        for y in range(column_no, column_no + 3):
+            if n := sudoku[x][y]:
+                if n in numbers:
+                    return False
+                numbers.append(n)
+    return True
+
 
 if __name__ == "__main__":
  
@@ -16,5 +24,4 @@ if __name__ == "__main__":
         [3, 0, 0, 0, 0, 0, 0, 0, 2]
     ]
 
-    print(block_correct(sudoku, 0, 0))
-    print(block_correct(sudoku, 1, 2))
+    print(block_correct(sudoku, 0, 6))
